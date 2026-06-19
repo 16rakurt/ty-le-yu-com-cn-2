@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://16rakurt.github.io/ty-le-yu-com-cn-2/sitemap.xml
