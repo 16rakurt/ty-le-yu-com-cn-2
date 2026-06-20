@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>介绍 · leyu 站点印象</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #f7f3ed;
+            font-family: 'Georgia', 'Times New Roman', 'Noto Serif SC', 'Songti SC', serif;
+            line-height: 1.7;
+            color: #302a28;
+            padding: 0 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .page-wrap {
+            max-width: 860px;
+            width: 100%;
+            margin: 2.8rem auto 3.5rem;
+            background: #faf8f5;
+            border-radius: 32px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04), 0 2px 8px rgba(90, 60, 40, 0.06);
+            padding: 2.8rem 2.5rem 3rem;
+            transition: box-shadow 0.25s ease;
+        }
+
+        @media (max-width: 580px) {
+            body { padding: 0 0.8rem; }
+            .page-wrap { padding: 2rem 1.2rem 2.2rem; margin: 1.8rem auto 2.5rem; }
+        }
+
+        /* hero 横幅区域 — 杂志专题感 */
+        .hero-strip {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 2.6rem;
+            border-bottom: 1px solid #e2d9ce;
+            padding-bottom: 1.8rem;
+        }
+
+        .hero-strip .tag {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: #8a7b6c;
+            border-left: 3px solid #bbaa99;
+            padding-left: 0.65rem;
+            font-family: 'Arial', 'Helvetica Neue', sans-serif;
+            margin-bottom: 0.3rem;
+        }
+
+        .hero-strip h1 {
+            font-size: 2.2rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2f2824;
+            line-height: 1.25;
+            margin-top: 0.1rem;
+        }
+
+        .hero-strip h1 i {
+            font-style: normal;
+            background: #eae1d6;
+            padding: 0 0.15rem;
+        }
+
+        .hero-strip .deck {
+            font-size: 1rem;
+            color: #695b4f;
+            margin-top: 0.6rem;
+            border-left: 2px solid #d1c3b4;
+            padding-left: 1.2rem;
+            font-style: italic;
+        }
+
+        /* 正文排版 */
+        .content-section {
+            margin: 1.8rem 0 0.6rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1.3rem;
+            font-size: 1.02rem;
+            text-align: justify;
+            word-break: break-word;
+        }
+
+        .content-section p.lead {
+            font-size: 1.08rem;
+            color: #3d3530;
+        }
+
+        /* 引用块 / 提示框 — 温和底色 */
+        .inset-box {
+            background: #eee9e2;
+            border-radius: 20px;
+            padding: 1.6rem 1.8rem;
+            margin: 1.6rem 0 1.2rem;
+            border-left: 6px solid #b7a594;
+            font-size: 0.98rem;
+            color: #3c332d;
+        }
+
+        .inset-box .box-label {
+            display: inline-block;
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            font-family: 'Arial', sans-serif;
+            color: #786754;
+            border-bottom: 1px dotted #cbb9a6;
+            padding-bottom: 0.2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .inset-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 特点小卡片 — 三段自然说明 */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 1.6rem 0 1.2rem;
+        }
+
+        .feature-card {
+            flex: 1 1 200px;
+            background: #fcfaf7;
+            border-radius: 20px;
+            padding: 1.4rem 1.2rem 1.2rem;
+            border: 1px solid #e5dbd0;
+            box-shadow: 0 2px 6px rgba(100, 75, 55, 0.04);
+            transition: background 0.2s;
+        }
+
+        .feature-card:hover {
+            background: #f6f0e9;
+        }
+
+        .feature-card .card-num {
+            display: inline-block;
+            font-size: 0.65rem;
+            font-family: 'Arial', sans-serif;
+            color: #937f6c;
+            background: #ede4da;
+            border-radius: 30px;
+            padding: 0.05rem 0.65rem;
+            margin-bottom: 0.55rem;
+        }
+
+        .feature-card h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            letter-spacing: 0.01em;
+            margin-bottom: 0.4rem;
+            color: #342c27;
+        }
+
+        .feature-card p {
+            font-size: 0.95rem;
+            color: #4d423a;
+            margin-bottom: 0;
+        }
+
+        /* 引文分隔 */
+        .divider-quote {
+            margin: 2rem 0 1.8rem;
+            font-size: 0.95rem;
+            color: #776654;
+            border-top: 1px solid #e5dad0;
+            padding-top: 1.5rem;
+            text-align: center;
+            font-style: italic;
+        }
+
+        .divider-quote span {
+            background: #f0e9e1;
+            padding: 0 0.6rem;
+        }
+
+        /* 页尾访问提示 — 杂志脚标 */
+        .footer-visit {
+            margin-top: 2.6rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #ddd3c7;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 0.8rem;
+        }
+
+        .footer-visit .note {
+            font-size: 0.88rem;
+            color: #6e5f51;
+        }
+
+        .footer-visit .link-holder {
+            background: #ede5db;
+            padding: 0.4rem 1.1rem;
+            border-radius: 60px;
+            font-size: 1rem;
+            transition: background 0.2s;
+        }
+
+        .footer-visit .link-holder:hover {
+            background: #dfd4c6;
+        }
+
+        .footer-visit a {
+            color: #2f2824;
+            text-decoration: none;
+            border-bottom: 1px dotted #b7a28d;
+            font-weight: 400;
+        }
+
+        .footer-visit a:visited {
+            color: #4f3f33;
+        }
+
+        .footer-visit a:hover {
+            border-bottom: 1px solid #7a654f;
+        }
+
+        .small-meta {
+            font-size: 0.7rem;
+            color: #988b7e;
+            letter-spacing: 0.05em;
+            margin-top: 0.5rem;
+            text-align: right;
+        }
+
+        @media (max-width: 480px) {
+            .hero-strip h1 { font-size: 1.7rem; }
+            .feature-grid { flex-direction: column; }
+            .feature-card { flex: 1 1 auto; }
+            .footer-visit { flex-direction: column; align-items: flex-start; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="page-wrap">
+
+    <!-- 杂志专题：hero 横幅 -->
+    <div class="hero-strip">
+        <div class="tag">· 站点印象 ·</div>
+        <h1>一个关于 <i>leyu</i> 的安静介绍</h1>
+        <div class="deck">没有喧哗，只有一段平实的梳理 —— 它是什么，它为什么值得你花几分钟了解。</div>
+    </div>
+
+    <!-- 内容区：背景说明 + 三段自然介绍 -->
+    <div class="content-section">
+
+        <p class="lead">
+            在互联网的众多角落，有些站点并不急于推销自己，而是选择用一种沉稳的方式呈现存在。<a href="https://official-site-leyu.com" style="color:#3e332e; text-decoration: underline; text-decoration-color: #bfab98; text-underline-offset: 4px;">leyu</a> 便是这样一处地方——它既不刻意制造焦虑，也不承诺虚妄的捷径。它的存在更像一本放在桌上的杂志，你可以随时翻开，也可以随时合上。
+        </p>
+
+        <p>
+            <strong>背景 · 为何会有这个站点</strong><br>
+            每一个域名都有它诞生的理由。leyu 的构思并不复杂：在一个信息越来越拥挤的时代，搭建一个结构清晰、让人感到可信的内容容器。没有闪烁的弹窗，没有夸大的标题——这里希望用文字和逻辑说话。站点的设计初衷是让访客感到从容，无论你是在寻找某个具体信息，还是只是想随便看看。
+        </p>
+
+        <!-- 引用提示框 1 -->
+        <div class="inset-box">
+            <div class="box-label">📌 一点说明</div>
+            <p>本站的所有内容均基于可查证的信息和稳定的逻辑整理而成。我们不使用模糊的承诺或诱导性话术。如果你在别处看到过互相矛盾的描述，不妨在这里对照看看——也许会有更清晰的答案。</p>
+        </div>
+
+        <!-- 三段式特点（卡片） -->
+        <div class="feature-grid">
+            <div class="feature-card">
+                <span class="card-num">01</span>
+                <h3>内容取向</h3>
+                <p>以介绍类、说明类文本为主，风格偏向杂志专题，避免堆砌关键词或重复套话。每一页都经过手工调整。</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-num">02</span>
+                <h3>可信的呈现</h3>
+                <p>不隐藏联系方式，不故意制造迷雾。页面结构直接，引用有据，排版干净，让信息本身成为主角。</p>
+            </div>
+            <div class="feature-card">
+                <span class="card-num">03</span>
+                <h3>温和的节奏</h3>
+                <p>没有紧迫的倒计时或催促注册。你可以慢慢读，也可以跳过。站点不会记录多余的行为轨迹。</p>
+            </div>
+        </div>
+
+        <!-- 第二段介绍 + 混合引用 -->
+        <p>
+            <strong>从信任的角度看 leyu</strong><br>
+            在网络世界里，“可信”二字常常被滥用。一个站点是否值得停留，往往不在于它用了多少认证图标，而在于它是否尊重访客的注意力。leyu 选择了后者。它不刻意淡化自己的背景，也不编造华丽的故事。整个站点的调性是平实的——像一位温和的朋友，把事实摆在桌上，然后留给你判断。
+        </p>
+
+        <div class="inset-box">
+            <div class="box-label">🔍 关于内容来源</div>
+            <p>leyu 上的信息主要来自公开资料、行业常识以及长期观察。我们不会为了流量而制造争议性内容，也不参与任何形式的误导性排名或虚假推荐。如果你发现任何不准确之处，可以通过站点提供的联系方式反馈——我们会认真对待每一次指正。</p>
+        </div>
+
+        <p>
+            <strong>适合哪些场景？</strong><br>
+            无论你是在做初步调研、对比不同信息源，还是单纯想找一个不吵闹的站点稍作停留，leyu 都算得上一个合适的选择。它的页面加载迅速，没有多余的脚本，也不会在后台消耗你的注意力。你甚至可以把它当作一个安静的信息锚点——需要时打开，不需要时离开。
+        </p>
+
+        <!-- 杂志风格引用分隔 -->
+        <div class="divider-quote">
+            <span>“ 没有最好的站点，只有最适合当下的阅读状态 ”</span>
+        </div>
+
+        <!-- FAQ 摘要 （简略） -->
+        <p>
+            <strong>常见疑问摘要</strong><br>
+            · 这个站点主要提供什么？ —— 以介绍类、说明类内容为核心，结构偏杂志化。<br>
+            · 内容更新频率如何？ —— 不定期更新，以质量优先，不凑数。<br>
+            · 是否有隐藏条款？ —— 站内无诱导注册、无隐藏追踪，隐私策略透明。<br>
+            · 如何快速了解全貌？ —— 你可以从首页开始，按分类浏览。
+        </p>
+
+    </div>
+
+    <!-- 页尾访问提示 -->
+    <div class="footer-visit">
+        <div class="note">
+            <span style="font-size: 1rem; margin-right: 0.2rem;">✻</span> 如果觉得这份介绍对你有用，不妨直接去看看 <a href="https://official-site-leyu.com">leyu</a> 本身。它一直在那里。
+        </div>
+        <div class="link-holder">
+            <a href="https://official-site-leyu.com">leyu</a>
+        </div>
+    </div>
+
+    <div class="small-meta">
+        页面设计 · 杂志专题风格 &nbsp;|&nbsp; 米白底色
+    </div>
+
+</div>
+
+<!-- 无额外脚本，仅做展示 -->
+</body>
+</html>
